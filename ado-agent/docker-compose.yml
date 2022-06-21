@@ -2,10 +2,9 @@ version: '2'
 services:
   agent:
     image: shoaib1999/azure-devops-agent:latest
-    container_name: azure_devops_agent
-    environment:
-      - AZP_URL=
-      - AZP_TOKEN=
-      - AZP_AGENT_NAME=
-      - AZP_POOL=
-      # - AZP_WORK=_work
+    # environment:
+    #   - AZP_URL=
+    #   - AZP_TOKEN=
+    #   - AZP_AGENT_NAME=
+    #   - AZP_POOL=
+    #   - AZP_WORK=_work
