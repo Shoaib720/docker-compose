@@ -3,6 +3,12 @@ version: '2'
 services:
   jenkins:
     image: docker.io/bitnami/jenkins:2
+    healthcheck:
+      test: ["CMD", "./jenkins_healthcheck.sh"]
+      interval: 1m
+      timeout: 30s
+      retries: 3
+      start_period: 30s
     ports:
       - '80:8080'
     environment:
