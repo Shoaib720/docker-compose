@@ -1,4 +1,4 @@
-version: '2'
+version: '3.9'
 services:
   elasticsearch:
     image: docker.io/bitnami/elasticsearch:8
@@ -12,17 +12,17 @@ services:
   logstash:
     image: docker.io/bitnami/logstash:8
     ports:
-      - 8080:8080
+      - '8080:8080'
     volumes:
-      - logstash_data:/bitnami
+      - 'logstash_data:/bitnami'
     networks:
       - elk_network
   kibana:
     image: docker.io/bitnami/kibana:8
     ports:
-      - "5601:5601"
+      - '5601:5601'
     volumes:
-      - "kibana_data:/bitnami/kibana"
+      - 'kibana_data:/bitnami/kibana'
     depends_on:
       - elasticsearch
     networks:
