@@ -2,20 +2,16 @@ version: '3.9'
 
 services:
   jenkins:
-    image: docker.io/bitnami/jenkins:2
-    healthcheck:
-      test: ["CMD", "curl --fail http://localhost:8080 || exit 1"]
-      interval: 5s
-      timeout: 3s
-      retries: 3
-      start_period: 10s
+    image: docker.io/shoaib1999/jenkins-docker:lts-jdk11
     ports:
-      - '80:8080'
-    environment:
-      - JENKINS_PASSWORD=bitnami
+      - '8080:8080'
+      - '50000:50000'
     volumes:
-      - 'jenkins_data:/bitnami/jenkins'
-
+      - 'jenkins_data:/var/jenkins_home'
+      - '/var/run/docker.sock:/var/run/docker.sock'
+    group_add:
+      - <host_docker_gid>
+    
 volumes:
   jenkins_data:
     driver: local
