@@ -29,12 +29,12 @@ services:
       - '8080:8080'
       - '50000:50000'
     volumes:
-      - 'jenkins_data:/bitnami/jenkins'
+      - 'jenkins_home:/var/jenkins_home'
       - '/var/run/docker.sock:/var/run/docker.sock'
     group_add:
-      - <host_docker_gid>
-
+      - '<host_docker_gid>'
+    
 volumes:
-  jenkins_data:
+  jenkins_home:
     driver: local
 ```
